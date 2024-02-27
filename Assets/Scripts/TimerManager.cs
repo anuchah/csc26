@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class TimerManager : MonoBehaviour
 {
-    private static TimerManager instance;
-    public float RemainingTime { get; set; }
-    bool timeActive = false;
-    int minutes;
-    int seconds;
-
-    public static TimerManager GetInstance() => instance;
+    public static TimerManager Instance { get; private set; }
+    public float RemainingTime { get; private set; }
+    private bool timeActive = false;
+    private int minutes;
+    private int seconds;
 
     void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
         else
         {
             Destroy(gameObject);
@@ -25,33 +23,29 @@ public class TimerManager : MonoBehaviour
     void Start()
     {
         RemainingTimer(RemainingTime);
+        Debug.Log(PlayerPrefs.GetFloat("ScoreTimer"));
     }
 
     void Update()
     {
         if (timeActive == true)
         {
-
             if (RemainingTime > 0)
             {
                 RemainingTime -= Time.deltaTime;
-                if (StarManager.GetInstance().countStar == StarManager.GetInstance().StarGoal)
+                if (StarManager.Instance.CompareStar())
                 {
-                    NormalMode.GetInstance().GameCompleted();
+                    NormalMode.Instance.GameCompleted();
                     StopTimer();
                 }
-
             }
             else if (RemainingTime < 0)
             {
                 RemainingTime = 0;
-                if (StarManager.GetInstance().countStar < StarManager.GetInstance().StarGoal)
-                {
-
-                    NormalMode.GetInstance().GameFailed();
-                    StopTimer();
-                }
+                NormalMode.Instance.GameOver();
+                StopTimer();
             }
+
             RemainingTimer(RemainingTime);
         }
     }
@@ -61,12 +55,11 @@ public class TimerManager : MonoBehaviour
         minutes = Mathf.FloorToInt(timer / 60);
         seconds = Mathf.FloorToInt(timer % 60);
     }
-    
-    public string PrettyTIme()
+
+    public string PrettyTime()
     {
         return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
-
     public void StartTimer()
     {
         timeActive = true;
@@ -74,6 +67,35 @@ public class TimerManager : MonoBehaviour
 
     public void StopTimer()
     {
+        timeActive = false;
+    }
+
+    public void SetInitialRemainingTime(float initialTime)
+    {
+        RemainingTime = initialTime;
+    }
+
+    public void SaveScoreTimer()
+    {
+        PlayerPrefs.SetFloat("ScoreTimer", RemainingTime);
+    }
+
+    public void LoadScoreTimer()
+    {
+        if (PlayerPrefs.HasKey("ScoreTimer"))
+        {
+            RemainingTime = PlayerPrefs.GetFloat("ScoreTimer");
+        }
+        else
+        {
+            RemainingTime = RemainingTime;
+        }
+        RemainingTimer(RemainingTime);
+    }
+
+    public void RestartTimer()
+    {
+        RemainingTime = 0;
         timeActive = false;
     }
 }

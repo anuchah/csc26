@@ -33,8 +33,10 @@ public class SpawnerLevel : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.GetInstance().isGameStart)
+        if (GameManager.Instance.CurrentGameState == GameManager.GameState.InProgress)
+        {
             Spawner();
+        }
 
     }
 
@@ -49,6 +51,7 @@ public class SpawnerLevel : MonoBehaviour
             transform.position = new Vector3(transform.position.x + levelWidths[levelSelector] + distanceBetween, transform.position.y, transform.position.z);
 
             Instantiate(levels[levelSelector], transform.position, transform.rotation);
+
             Instantiate(stars[levelSelector], transform.position, transform.rotation);
         }
     }

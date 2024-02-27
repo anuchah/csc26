@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelMenu : MonoBehaviour
 {
     public Button[] buttons;
+    public Button exitBtn;
     public GameObject levelsButtons;
     public LevelManager.Level[] levels = {
         LevelManager.Level.Level1,
         LevelManager.Level.Level2,
-        LevelManager.Level.Level3
+        LevelManager.Level.Level3,
+        LevelManager.Level.Empty
         };
 
     void Awake()
@@ -32,7 +35,7 @@ public class LevelMenu : MonoBehaviour
 
     public void OpenLevel(LevelManager.Level level)
     {
-        LevelManager.GetInstance().StartLevel(level);
+        LevelManager.Instance.StartLevel(level);
     }
 
     void ButtonsToArray()
@@ -43,5 +46,6 @@ public class LevelMenu : MonoBehaviour
         {
             buttons[i] = levelsButtons.transform.GetChild(i).gameObject.GetComponent<Button>();
         }
+        buttons.Append(exitBtn);
     }
 }

@@ -5,44 +5,47 @@ using UnityEngine;
 
 public class NormalMode : MonoBehaviour
 {
-    public static NormalMode instance;
-    public GameManager gameManager;
-    public TimerManager timerManager;
-
-    public static NormalMode GetInstance() => instance;
+    public static NormalMode Instance { get; private set; }
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
+        if (Instance == null)
+            Instance = this;
         else
         {
             Destroy(gameObject);
         }
+
+    }
+
+    void Update()
+    {
+
     }
 
     public void StartGame()
     {
-        GameManager.GetInstance().StartGame();
-        TimerManager.GetInstance().StartTimer();
+        GameManager.Instance.StartGame();
+        TimerManager.Instance.StartTimer();
     }
 
     public void GameOver()
     {
-        GameManager.GetInstance().GameOver();
-        TimerManager.GetInstance().StopTimer();
+        GameManager.Instance.EndGame(false);
+        TimerManager.Instance.StopTimer();
     }
 
     public void GameCompleted()
     {
-        GameManager.GetInstance().GameCompleted();
-        LevelManager.GetInstance().UnlockNewLevel();
+        GameManager.Instance.EndGame(true);
+        TimerManager.Instance.SaveScoreTimer();
+        LevelManager.Instance.UnlockNewLevel();
     }
 
-    public void GameFailed()
+    public void RestartGame()
     {
-        GameOver();
+        GameManager.Instance.RestartGame();
+        TimerManager.Instance.RestartTimer();
+        StarManager.Instance.RestartStars();
     }
 }

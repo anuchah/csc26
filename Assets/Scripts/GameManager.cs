@@ -6,54 +6,94 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
+    public static GameManager Instance { get; private set; }
+    public enum GameState
+    {
+        NotStarted,
+        InProgress,
+        GameOver,
+        GameCompleted,
+        Paused
+    }
+    public GameState CurrentGameState { get; set; }
     public UnityEvent onStartGame;
     public UnityEvent onGameOver;
-    public UnityEvent onGameComplete;
-    public bool isGameOver = false;
-    public bool isGameStart = false;
-    public bool isGameComplete = false;
-
-    public static GameManager GetInstance() => instance;
-
+    public UnityEvent onGameCompleted;
+    public UnityEvent onPauseGame;
+    public UnityEvent onUnpauseGame;
+    public bool isPaused = false;
     void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         else
         {
             Destroy(gameObject);
         }
     }
-
     void Start()
     {
         Debug.Log("Game Manager is here!");
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isPaused)
+                PauseGame();
+            else
+                UnpauseGame();
+        }
+        Debug.Log(CurrentGameState);
+    }
     public void StartGame()
     {
-        isGameStart = true;
+        CurrentGameState = GameState.InProgress;
         onStartGame.Invoke();
     }
 
-    public void GameOver()
+    public void PauseGame()
     {
-
-        isGameOver = true;
-        isGameStart = false;
-        onGameOver.Invoke();
+        if (CurrentGameState == GameState.InProgress)
+        {
+            Time.timeScale = 0f;
+            CurrentGameState = GameState.Paused;
+            onPauseGame.Invoke();
+            isPaused = true;
+        }
     }
 
-    public void GameCompleted()
+    public void UnpauseGame()
     {
-        isGameComplete = true;
-        isGameStart = false;
-        onGameComplete.Invoke();
+        if (CurrentGameState == GameState.Paused)
+        {
+            Time.timeScale = 1f;
+            CurrentGameState = GameState.InProgress;
+            onUnpauseGame.Invoke();
+            isPaused = false;
+        }
     }
 
-    public void GameFailed()
+    public void EndGame(bool completed)
     {
-        GameOver();
+        CurrentGameState = completed ? GameState.GameCompleted : GameState.GameOver;
+        if (completed)
+        {
+            onGameCompleted.Invoke();
+        }
+        else
+        {
+            onGameOver.Invoke();
+        }
+    }
+
+    public void RestartGame()
+    {
+        CurrentGameState = GameState.NotStarted;
+        isPaused = false;
+        Time.timeScale = 1f;
     }
 }

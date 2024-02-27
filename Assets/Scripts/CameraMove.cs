@@ -64,7 +64,7 @@ public class CameraMove : MonoBehaviour
     void Update()
     {
         Vector3 temp = transform.position;
-        temp.x += moveSpeed * Time.deltaTime;
+        temp.x += SpeedManager.Instance.Speed * Time.deltaTime;
         transform.position = temp;
     }
     void LateUpdate()

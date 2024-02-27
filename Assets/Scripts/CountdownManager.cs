@@ -37,9 +37,9 @@ public class CountdownManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         countdownDisplay.gameObject.SetActive(false);
 
-        if (ModeManager.GetInstance().currentMode == ModeManager.GameMode.Normal)
+        if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Normal)
         {
-            NormalMode.GetInstance().StartGame();
+            NormalMode.Instance.StartGame();
             Debug.Log("Normal Start!");
         }
 

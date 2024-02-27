@@ -12,9 +12,9 @@ public class EndlessScreen : MonoBehaviour
         btnPlay.onClick.AddListener(() => Loader.Load(Loader.Scene.Gameplay1));
 
         Button btnSwap = GameObject.Find("btnSwap").GetComponent<Button>();
-        btnSwap.onClick.AddListener(() => ModeManager.GetInstance().SwitchMode());
+        btnSwap.onClick.AddListener(() => ModeManager.Instance.SwitchMode());
 
         Button btnExit = GameObject.Find("btnExit").GetComponent<Button>();
-        btnExit.onClick.AddListener(() => ModeManager.GetInstance().ClearToMain());
+        btnExit.onClick.AddListener(() => ModeManager.Instance.ClearToMain());
     }
 }

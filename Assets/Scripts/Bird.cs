@@ -6,13 +6,15 @@ public class Bird : MonoBehaviour
 {
     public float speed = 3f;
     public float jumpForce = 5f;
-    public float minYBound = -5f;
-    public float maxYBound = 5f;
+    public float minYBound = -6f;
+    public float maxYBound = 6f;
     private Vector3 temp;
     private bool isDead = false;
     private static Bird instance;
     Rigidbody2D _rigidbody2D;
     Animator _animator;
+
+    private GameManager.GameState gameState;
     public static Bird GetInstance() => instance;
 
     private void Awake()
@@ -31,14 +33,21 @@ public class Bird : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.GetInstance().isGameStart)
+        if (GameManager.Instance != null)
         {
-            _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-            HandleFlap();
+            gameState = GameManager.Instance.CurrentGameState;
+
+            if (gameState == GameManager.GameState.InProgress)
+            {
+                _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+                transform.eulerAngles = new Vector3(0, 0, _rigidbody2D.velocity.y * .2f);
+                HandleFlap();
+
+                if (temp.y > maxYBound || temp.y < minYBound)
+                    Die();
+            }
         }
 
-        if (temp.y > maxYBound || temp.y < minYBound)
-            Debug.Log("BIRD DEATH");
 
         if (isDead)
             return;
@@ -63,21 +72,31 @@ public class Bird : MonoBehaviour
     void HandleMove()
     {
         temp = transform.position;
-        temp.x += speed * Time.deltaTime;
+        temp.x += SpeedManager.Instance.Speed * Time.deltaTime;
         transform.position = temp;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Obstacle"))
+        if (GameManager.Instance.CurrentGameState == GameManager.GameState.InProgress)
         {
-            Debug.Log("Death");
-            // Add Bird Die()
+            if (collision.CompareTag("Obstacle"))
+            {
+                Die();
+            }
+            if (collision.CompareTag("Item"))
+            {
+                StarManager.Instance.IncrementStarCount();
+                Destroy(collision.gameObject);
+            }
         }
-        if (collision.CompareTag("Item"))
+    }
+
+    private void Die()
+    {
+        if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Normal)
         {
-            StarManager.GetInstance().CollectStar();
-            Destroy(collision.gameObject);
+            NormalMode.Instance.GameOver();
         }
     }
 }

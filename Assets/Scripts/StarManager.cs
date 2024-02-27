@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class StarManager : MonoBehaviour
 {
-    public int starGoal;
-    public int countStar = 0;
-    private static StarManager Instance;
-    public static StarManager GetInstance()
-    {
-        return Instance;
-    }
+    public static StarManager Instance { get; private set; }
+    public int StarGoal { get; private set; }
+    public int CountStar { get; private set; }
+
+    private bool isEqauls;
 
     private void Awake()
     {
@@ -24,29 +22,40 @@ public class StarManager : MonoBehaviour
         }
     }
 
-    public void CollectStar()
+    public bool CompareStar()
     {
-        countStar++;
+        if (CountStar == StarGoal)
+            isEqauls = true;
+
+        if (CountStar < StarGoal)
+            isEqauls = false;
+        
+        return isEqauls;
+    }
+
+    public void InitializeStarGoal(int goal)
+    {
+        StarGoal = goal;
+    }
+
+    public void IncrementStarCount()
+    {
+        CountStar++;
     }
 
     public string PrettyCountStar()
     {
-        return countStar.ToString();
+        return CountStar.ToString();
     }
 
-    public string PrettyStarGo()
+    public string PrettyStarGoal()
     {
         return StarGoal.ToString();
     }
-    public int StarGoal
+
+    public void RestartStars()
     {
-        get
-        {
-            return starGoal;
-        }
-        set
-        {
-            starGoal = value;
-        }
+        CountStar = 0;
+        StarGoal = 0;
     }
 }

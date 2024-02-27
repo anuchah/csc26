@@ -8,9 +8,9 @@ public class MainMenuScreen : MonoBehaviour
     private void Awake()
     {
         Button btnNormal = GameObject.Find("btnNormal").GetComponent<Button>();
-        btnNormal.onClick.AddListener(() => ModeManager.GetInstance().StartNormalMode());
+        btnNormal.onClick.AddListener(() => ModeManager.Instance.StartNormalMode());
 
         Button btnEndless = GameObject.Find("btnEndless").GetComponent<Button>();
-        btnEndless.onClick.AddListener(() => ModeManager.GetInstance().StartEndlessMode());
+        btnEndless.onClick.AddListener(() => ModeManager.Instance.StartEndlessMode());
     }
 }

@@ -6,18 +6,17 @@ using UnityEngine.SceneManagement;
 public class ModeManager : MonoBehaviour
 {
     public enum GameMode { Empty, Normal, Endless }
-    public GameMode currentMode;
+    public GameMode CurrentMode { get; private set; }
     public GameObject[] normalPrefabs;
     public GameObject[] endlessPrefabs;
     public Transform gameModeParent;
-    private static ModeManager instance;
-    public static ModeManager GetInstance() => instance;
+    public static ModeManager Instance { get; private set; }
 
     void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -28,31 +27,31 @@ public class ModeManager : MonoBehaviour
 
     void Start()
     {
-        currentMode = GameMode.Empty;
+        CurrentMode = GameMode.Empty;
     }
 
     public void StartNormalMode()
     {
-        currentMode = GameMode.Normal;
+        CurrentMode = GameMode.Normal;
         Loader.Load(Loader.Scene.Normal);
         InstantiateObject();
     }
 
     public void StartEndlessMode()
     {
-        currentMode = GameMode.Endless;
+        CurrentMode = GameMode.Endless;
         Loader.Load(Loader.Scene.Endless);
         InstantiateObject();
     }
 
     public void SwitchMode()
     {
-        if (currentMode == GameMode.Normal)
+        if (CurrentMode == GameMode.Normal)
         {
             DestroyModePrefab();
             StartEndlessMode();
         }
-        else if (currentMode == GameMode.Endless)
+        else if (CurrentMode == GameMode.Endless)
         {
             DestroyModePrefab();
             StartNormalMode();
@@ -63,7 +62,7 @@ public class ModeManager : MonoBehaviour
     {
         GameObject obj = null;
 
-        switch (currentMode)
+        switch (CurrentMode)
         {
             case GameMode.Normal:
                 for (int i = 0; i < normalPrefabs.Length; i++)
@@ -90,7 +89,7 @@ public class ModeManager : MonoBehaviour
     public void ClearToMain()
     {
         DestroyModePrefab();
-        currentMode = GameMode.Empty;
+        CurrentMode = GameMode.Empty;
         Loader.Load(Loader.Scene.MainMenu);
     }
 }

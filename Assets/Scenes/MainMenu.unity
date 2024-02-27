@@ -1005,13 +1005,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec32c6a57281a147aff9e6631182bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMode: 0
   normalPrefabs:
   - {fileID: 8522914755353217188, guid: 6a1a8f9d4872f754bb243c4cdbb4791e, type: 3}
   - {fileID: 23514736800999582, guid: fa71b9d8a6ef0654b8c70ef14e79219c, type: 3}
   - {fileID: 6121366573458564322, guid: 1598541ea9aa7f64e9681b96651ac76d, type: 3}
   - {fileID: 6457333020073877012, guid: ee33f532cff32e647aa2bc2ddeddad9c, type: 3}
   - {fileID: 1464180408423125295, guid: 9fdff185518d21448ba98b011d0d7c83, type: 3}
+  - {fileID: 2465766200921567342, guid: ccdac445adc50cb4f9f1932e174628cb, type: 3}
   endlessPrefabs: []
   gameModeParent: {fileID: 1637081168}
 --- !u!4 &1637081168
