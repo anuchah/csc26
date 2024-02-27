@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle
+  - Item
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -40,4 +43,46 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Layer 1
+    uniqueID: 393055
+    locked: 0
+  - name: Layer 2
+    uniqueID: 3654843997
+    locked: 0
+  - name: Layer 3
+    uniqueID: 820626357
+    locked: 0
+  - name: Layer 4
+    uniqueID: 3404401023
+    locked: 0
+  - name: Layer 5
+    uniqueID: 837414193
+    locked: 0
+  - name: Layer 6
+    uniqueID: 243033931
+    locked: 0
+  - name: Layer 7
+    uniqueID: 2325270481
+    locked: 0
+  - name: Layer 8
+    uniqueID: 1517373403
+    locked: 0
+  - name: Layer 9
+    uniqueID: 3568352007
+    locked: 0
+  - name: Layer 10
+    uniqueID: 2219728355
+    locked: 0
+  - name: Obstacle
+    uniqueID: 1030906059
+    locked: 0
+  - name: Coin
+    uniqueID: 1084882047
+    locked: 0
+  - name: Player
+    uniqueID: 1646231209
+    locked: 0
+  - name: Foreground
+    uniqueID: 1938053989
     locked: 0

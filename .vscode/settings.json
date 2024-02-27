@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "flyaway-game.sln"
+    "dotnet.defaultSolution": "anuchah-project.sln"
 }
