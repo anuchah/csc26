@@ -1012,7 +1012,13 @@ MonoBehaviour:
   - {fileID: 6457333020073877012, guid: ee33f532cff32e647aa2bc2ddeddad9c, type: 3}
   - {fileID: 1464180408423125295, guid: 9fdff185518d21448ba98b011d0d7c83, type: 3}
   - {fileID: 2465766200921567342, guid: ccdac445adc50cb4f9f1932e174628cb, type: 3}
-  endlessPrefabs: []
+  endlessPrefabs:
+  - {fileID: 8522914755353217188, guid: 6a1a8f9d4872f754bb243c4cdbb4791e, type: 3}
+  - {fileID: 2853180925785075663, guid: fa1f82c1e30ab884b8b073846629db4f, type: 3}
+  - {fileID: 8249371440322073323, guid: 9ce2511ab0b4d394ca90769788437323, type: 3}
+  - {fileID: 7054328259140520217, guid: 8cf5d327dd14edf41a68368ef5649ce6, type: 3}
+  - {fileID: 6370586968253539279, guid: 4da815b8c9af4cb48b5658bb2ed3df59, type: 3}
+  - {fileID: 2465766200921567342, guid: ccdac445adc50cb4f9f1932e174628cb, type: 3}
   gameModeParent: {fileID: 1637081168}
 --- !u!4 &1637081168
 Transform:

@@ -124,8 +124,8 @@ public class SpeedManager : MonoBehaviour
         }
         else if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Endless)
         {
-            Speed = 3f;
-            SpeedIncrement = 0.01f;
+            Speed = 3.5f;
+            SpeedIncrement = 0.025f;
             TimeInterval = 1f;
         }
         else if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Empty)

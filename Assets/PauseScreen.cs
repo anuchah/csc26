@@ -10,52 +10,73 @@ public class PauseScreen : MonoBehaviour
     public GameObject gamepleyScreen;
     public GameObject buttonsGroup;
     public Dictionary<string, Button> buttonDictionary;
-
     private void Awake()
     {
 
         ButtonsToArray();
+        if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Normal)
+        {
 
-        if (LevelManager.Instance.CurrentLevel == LevelManager.Level.Level1)
-        {
-            buttonDictionary["RestartButton"].onClick.AddListener(() =>
+            if (LevelManager.Instance.CurrentLevel == LevelManager.Level.Level1)
             {
-                NormalMode.Instance.RestartGame();
-                LevelManager.Instance.StartLevel(LevelManager.Level.Level1);
-            });
-            buttonDictionary["ResumeButton"].onClick.AddListener(() => GameManager.Instance.UnpauseGame());
-            buttonDictionary["MenuButton"].onClick.AddListener(() =>
+                buttonDictionary["RestartButton"].onClick.AddListener(() =>
+                {
+                    NormalMode.Instance.RestartGame();
+                    LevelManager.Instance.StartLevel(LevelManager.Level.Level1);
+                });
+                buttonDictionary["ResumeButton"].onClick.AddListener(() => GameManager.Instance.UnpauseGame());
+                buttonDictionary["MenuButton"].onClick.AddListener(() =>
+                {
+                    NormalMode.Instance.RestartGame();
+
+                    LevelManager.Instance.StartLevel(LevelManager.Level.Empty);
+                });
+            }
+            else if (LevelManager.Instance.CurrentLevel == LevelManager.Level.Level2)
             {
-                NormalMode.Instance.RestartGame();
-                LevelManager.Instance.StartLevel(LevelManager.Level.Empty);
-            });
+                buttonDictionary["RestartButton"].onClick.AddListener(() =>
+                {
+                    NormalMode.Instance.RestartGame();
+
+                    LevelManager.Instance.StartLevel(LevelManager.Level.Level2);
+                });
+                buttonDictionary["ResumeButton"].onClick.AddListener(() => GameManager.Instance.UnpauseGame());
+                buttonDictionary["MenuButton"].onClick.AddListener(() =>
+                {
+                    NormalMode.Instance.RestartGame();
+
+                    LevelManager.Instance.StartLevel(LevelManager.Level.Empty);
+                });
+            }
+            else if (LevelManager.Instance.CurrentLevel == LevelManager.Level.Level3)
+            {
+                buttonDictionary["RestartButton"].onClick.AddListener(() =>
+                {
+                    NormalMode.Instance.RestartGame();
+
+                    LevelManager.Instance.StartLevel(LevelManager.Level.Level3);
+                });
+                buttonDictionary["ResumeButton"].onClick.AddListener(() => GameManager.Instance.UnpauseGame());
+                buttonDictionary["MenuButton"].onClick.AddListener(() =>
+                {
+                    NormalMode.Instance.RestartGame();
+                    LevelManager.Instance.StartLevel(LevelManager.Level.Empty);
+                });
+            }
         }
-        else if (LevelManager.Instance.CurrentLevel == LevelManager.Level.Level2)
+        else if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Endless)
         {
             buttonDictionary["RestartButton"].onClick.AddListener(() =>
-            {
-                NormalMode.Instance.RestartGame();
-                LevelManager.Instance.StartLevel(LevelManager.Level.Level2);
-            });
+               {
+                   EndlessMode.Instance.RestartGame();
+
+                   Loader.Load(Loader.Scene.Gameplay);
+               });
             buttonDictionary["ResumeButton"].onClick.AddListener(() => GameManager.Instance.UnpauseGame());
             buttonDictionary["MenuButton"].onClick.AddListener(() =>
             {
-                NormalMode.Instance.RestartGame();
-                LevelManager.Instance.StartLevel(LevelManager.Level.Empty);
-            });
-        }
-        else if (LevelManager.Instance.CurrentLevel == LevelManager.Level.Level3)
-        {
-            buttonDictionary["RestartButton"].onClick.AddListener(() =>
-            {
-                NormalMode.Instance.RestartGame();
-                LevelManager.Instance.StartLevel(LevelManager.Level.Level3);
-            });
-            buttonDictionary["ResumeButton"].onClick.AddListener(() => GameManager.Instance.UnpauseGame());
-            buttonDictionary["MenuButton"].onClick.AddListener(() =>
-            {
-                NormalMode.Instance.RestartGame();
-                LevelManager.Instance.StartLevel(LevelManager.Level.Empty);
+                EndlessMode.Instance.RestartGame();
+                Loader.Load(Loader.Scene.Endless);
             });
         }
     }

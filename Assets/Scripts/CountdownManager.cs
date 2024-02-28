@@ -43,10 +43,9 @@ public class CountdownManager : MonoBehaviour
             Debug.Log("Normal Start!");
         }
 
-        // if (ModeManager.GetInstance().currentMode == ModeManager.GameMode.Endless)
-        // {
-
-        // }
-
+        if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Endless)
+        {
+            EndlessMode.Instance.StartGame();
+        }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class NormalMode : MonoBehaviour
 {
     public static NormalMode Instance { get; private set; }
-
+    
     void Awake()
     {
         if (Instance == null)
@@ -15,12 +15,6 @@ public class NormalMode : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-    }
-
-    void Update()
-    {
-
     }
 
     public void StartGame()
@@ -40,6 +34,7 @@ public class NormalMode : MonoBehaviour
         GameManager.Instance.EndGame(true);
         TimerManager.Instance.SaveScoreTimer();
         LevelManager.Instance.UnlockNewLevel();
+        Bird.Instance.ResetBodyType();
     }
 
     public void RestartGame()

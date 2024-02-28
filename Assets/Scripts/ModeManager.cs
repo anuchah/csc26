@@ -61,7 +61,6 @@ public class ModeManager : MonoBehaviour
     public void InstantiateObject()
     {
         GameObject obj = null;
-
         switch (CurrentMode)
         {
             case GameMode.Normal:

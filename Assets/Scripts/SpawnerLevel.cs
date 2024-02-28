@@ -33,10 +33,8 @@ public class SpawnerLevel : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.CurrentGameState == GameManager.GameState.InProgress)
-        {
-            Spawner();
-        }
+        // if (GameManager.Instance.CurrentGameState == GameManager.GameState.InProgress)
+        Spawner();
 
     }
 

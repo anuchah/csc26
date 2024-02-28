@@ -63,9 +63,10 @@ public class CameraMove : MonoBehaviour
     }
     void Update()
     {
-        Vector3 temp = transform.position;
-        temp.x += SpeedManager.Instance.Speed * Time.deltaTime;
-        transform.position = temp;
+        // Vector3 temp = transform.position;
+        // // temp.x += SpeedManager.Instance.Speed * Time.deltaTime;
+        // temp.x += 5f * Time.deltaTime;
+        // transform.position = temp;
     }
     void LateUpdate()
     {

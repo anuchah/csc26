@@ -9,7 +9,7 @@ public class EndlessScreen : MonoBehaviour
     private void Awake()
     {
         Button btnPlay = GameObject.Find("btnPlay").GetComponent<Button>();
-        btnPlay.onClick.AddListener(() => Loader.Load(Loader.Scene.Gameplay1));
+        btnPlay.onClick.AddListener(() => Loader.Load(Loader.Scene.Gameplay));
 
         Button btnSwap = GameObject.Find("btnSwap").GetComponent<Button>();
         btnSwap.onClick.AddListener(() => ModeManager.Instance.SwitchMode());
