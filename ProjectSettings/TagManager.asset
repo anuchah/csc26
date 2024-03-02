@@ -9,6 +9,7 @@ TagManager:
   - BoosterItem
   - Magnet
   - Star
+  - Enemy
   layers:
   - Default
   - TransparentFX
