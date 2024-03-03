@@ -28,6 +28,7 @@ public class EndlessMode : MonoBehaviour
         GameManager.Instance.EndGame(false);
         ScoreManager.Instance.EndRound();
         CoinManager.Instance.EndRound();
+        ScoreManager.Instance.StopStopwatch();
     }
 
     public void RestartGame()

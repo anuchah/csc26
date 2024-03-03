@@ -36,7 +36,7 @@ public class ShopManager : MonoBehaviour
                 c.isUnlocked = PlayerPrefs.GetInt(c.name, 0) == 0 ? false : true;
             }
         }
-        nameText.text = prefabs[selectedCharacter].name.ToString();
+        nameText.text = characters[selectedCharacter].name.ToString();
         UpdateUI();
     }
 
@@ -53,7 +53,7 @@ public class ShopManager : MonoBehaviour
         prefabs[selectedCharacter].SetActive(true);
         if (characters[selectedCharacter].isUnlocked)
             PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
-        nameText.text = prefabs[selectedCharacter].name.ToString();
+        nameText.text = characters[selectedCharacter].name.ToString();
         UpdateUI();
     }
 
@@ -70,14 +70,14 @@ public class ShopManager : MonoBehaviour
         prefabs[selectedCharacter].SetActive(true);
         if (characters[selectedCharacter].isUnlocked)
             PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
-        nameText.text = prefabs[selectedCharacter].name.ToString();
+        nameText.text = characters[selectedCharacter].name.ToString();
         UpdateUI();
     }
 
     public void UpdateUI()
     {
         coinsText.text = characters[selectedCharacter].price.ToString();
-        coinsAmount.text = PlayerPrefs.GetInt("TotalCoin", 0).ToString();
+        coinsAmount.text = CoinManager.Instance.PrettyTotalCoin();
         if (characters[selectedCharacter].isUnlocked == true)
         {
             unlockBtn.gameObject.SetActive(false);
@@ -103,7 +103,8 @@ public class ShopManager : MonoBehaviour
 
         int coin = PlayerPrefs.GetInt("TotalCoin", 0);
         int price = characters[selectedCharacter].price;
-        PlayerPrefs.SetInt("TotalCoin", coin - price);
+        int total = coin - price;
+        PlayerPrefs.SetInt("TotalCoin", total);
         PlayerPrefs.SetInt(characters[selectedCharacter].name, 1);
         PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
         characters[selectedCharacter].isUnlocked = true;

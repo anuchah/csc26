@@ -11,7 +11,6 @@ public class ScoreManager : MonoBehaviour
     float currentTime;
     int score;
     int highScore;
-    public float multiplier = 5f; //Get Speed in Speed Manager!
 
     void Awake()
     {
@@ -26,6 +25,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         currentTime = 0;
+        score = 0;
     }
 
     void Update()
@@ -59,22 +59,23 @@ public class ScoreManager : MonoBehaviour
 
     public void EndRound()
     {
-        score = Mathf.RoundToInt(currentTime * multiplier);
         UpdateHighScore();
         PlayerPrefs.SetInt("LastScore", score);
         PlayerPrefs.Save();
         currentTime = 0;
+        score = 0;
     }
 
     public void ResetTimer()
     {
         currentTime = 0;
+        score = 0;
         stopwatchActive = false;
     }
 
     public string PrettyScore()
     {
-        return score.ToString("00 000 000");
+        return score.ToString("D6");
     }
 
     public string PrettyHighScore()

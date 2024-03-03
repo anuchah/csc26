@@ -109,29 +109,23 @@ public class Bird : MonoBehaviour
                 {
                     StarManager.Instance.IncrementStarCount();
                     AudioManager.Instance.PlaySound(TagManager.COIN_COLLECTOR);
-                    Debug.Log(TagManager.COIN_COLLECTOR);
                     Destroy(collision.gameObject);
                 }
             }
-
-            if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Endless)
+            if (collision.gameObject.CompareTag("Magnet"))
             {
-                if (collision.gameObject.CompareTag("Magnet"))
-                {
-                    isMagnet = true;
-                    // AudioManager.Instance.PlaySound(TagManager.COLLECT_ITEMS);
-                    Destroy(collision.gameObject);
-                    if (magnetCoroutine != null)
-                        StopCoroutine(magnetCoroutine);
-                    magnetCoroutine = StartCoroutine(MagnetCoroutine());
-                }
+                isMagnet = true;
+                Destroy(collision.gameObject);
+                if (magnetCoroutine != null)
+                    StopCoroutine(magnetCoroutine);
+                magnetCoroutine = StartCoroutine(MagnetCoroutine());
+            }
 
-                if (collision.gameObject.CompareTag("Coin"))
-                {
-                    CoinManager.Instance.CollectCoin();
-                    AudioManager.Instance.PlaySound(TagManager.COIN_COLLECTOR);
-                    Destroy(collision.gameObject);
-                }
+            if (collision.gameObject.CompareTag("Coin"))
+            {
+                AudioManager.Instance.PlaySound(TagManager.COIN_COLLECTOR);
+                CoinManager.Instance.CollectCoin();
+                Destroy(collision.gameObject);
             }
         }
     }

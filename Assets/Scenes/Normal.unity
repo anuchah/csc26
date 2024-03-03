@@ -1416,9 +1416,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0
-  m_Text: 'PLAY
-
-'
+  m_Text: START
 --- !u!222 &976657534
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1901,7 +1899,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0
-  m_Text: EXIT
+  m_Text: BACK
 --- !u!222 &1270527987
 CanvasRenderer:
   m_ObjectHideFlags: 0

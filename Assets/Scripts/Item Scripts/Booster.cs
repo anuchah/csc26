@@ -14,7 +14,6 @@ public class Booster : MonoBehaviour
                 AudioManager.Instance.PlaySound(TagManager.COLLECT_ITEMS);
                 if (bird != null)
                 {
-                    // bird.ActivateSpeedBoost();
                     bird.ActivateSpeedBoost();
                     Destroy(gameObject);
                 }
