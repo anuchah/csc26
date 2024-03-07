@@ -115,6 +115,7 @@ public class Bird : MonoBehaviour
             if (collision.gameObject.CompareTag("Magnet"))
             {
                 isMagnet = true;
+                AudioManager.Instance.PlaySound(TagManager.COLLECT_ITEMS);
                 Destroy(collision.gameObject);
                 if (magnetCoroutine != null)
                     StopCoroutine(magnetCoroutine);

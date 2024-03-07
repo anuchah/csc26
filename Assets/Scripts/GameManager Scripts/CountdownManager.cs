@@ -32,7 +32,7 @@ public class CountdownManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             countdownTimer--;
         }
-
+        
         countdownDisplay.text = "LET'S GO!";
         yield return new WaitForSeconds(1f);
         countdownDisplay.gameObject.SetActive(false);

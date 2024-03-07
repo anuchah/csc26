@@ -20,7 +20,6 @@ public class EndlessMode : MonoBehaviour
     {
         GameManager.Instance.StartGame();
         ScoreManager.Instance.StartStopwatch();
-        
     }
 
     public void GameOver()
@@ -29,6 +28,7 @@ public class EndlessMode : MonoBehaviour
         ScoreManager.Instance.EndRound();
         CoinManager.Instance.EndRound();
         ScoreManager.Instance.StopStopwatch();
+        AudioManager.Instance.PlaySound(TagManager.FAILED);
     }
 
     public void RestartGame()

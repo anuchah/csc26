@@ -26,6 +26,7 @@ public class NormalMode : MonoBehaviour
     public void GameOver()
     {
         GameManager.Instance.EndGame(false);
+        AudioManager.Instance.PlaySound(TagManager.FAILED);
         TimerManager.Instance.StopTimer();
     }
 
@@ -34,6 +35,7 @@ public class NormalMode : MonoBehaviour
         GameManager.Instance.EndGame(true);
         TimerManager.Instance.SaveScoreTimer();
         LevelManager.Instance.UnlockNewLevel();
+        AudioManager.Instance.PlaySound(TagManager.COMPLETE);
         Bird.Instance.ResetBody();
     }
 

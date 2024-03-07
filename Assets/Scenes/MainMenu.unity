@@ -1572,6 +1572,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2866918bf99188a48b6bd4321916b460, type: 3}
   - name: Button
     clip: {fileID: 8300000, guid: df4efb0e8e0e4c24ba3b3521c56eced6, type: 3}
+  - name: Complete
+    clip: {fileID: 8300000, guid: 4f74492604287c94296292865fe8ec46, type: 3}
+  - name: Failed
+    clip: {fileID: 8300000, guid: 687f4f507fcd1c846a364b2871edcdde, type: 3}
+  - name: Item
+    clip: {fileID: 8300000, guid: 16923f4774f8d2342bf5ec74d388b952, type: 3}
   musicSource: {fileID: 458655149}
   sfxSource: {fileID: 1015696751}
   isMuted: 0
