@@ -35,6 +35,7 @@ public class ObstacleMove : MonoBehaviour
         pointCount = wayPoints.Length;
         pointIndex = 1;
         targetPos = wayPoints[pointIndex].transform.position;
+        speed = SpeedManager.Instance.Speed;
     }
 
     private void Update()
@@ -42,11 +43,23 @@ public class ObstacleMove : MonoBehaviour
         var step = speedMultiplier * speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
 
-        if (transform.position == targetPos)
+        if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Normal)
         {
-            NextPoint();
-            transform.Rotate(Vector3.up, 180f);
+            if (transform.position == targetPos)
+            {
+                NextPoint();
+                transform.Rotate(Vector3.up, 180f);
+            }
         }
+
+        if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Endless)
+        {
+            if (transform.position == targetPos)
+            {
+                NextPoint();
+            }
+        }
+
     }
 
     void NextPoint()
@@ -64,8 +77,8 @@ public class ObstacleMove : MonoBehaviour
         pointIndex += direction;
         targetPos = wayPoints[pointIndex].transform.position;
 
-        
-       
+
+
 
         StartCoroutine(WaitNextPoint());
     }
@@ -75,10 +88,5 @@ public class ObstacleMove : MonoBehaviour
         speedMultiplier = 0;
         yield return new WaitForSeconds(waitDuration);
         speedMultiplier = 1;
-    }
-
-    void Flip()
-    {
-
     }
 }

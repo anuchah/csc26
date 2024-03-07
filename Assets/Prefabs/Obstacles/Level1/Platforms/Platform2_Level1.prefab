@@ -37,7 +37,7 @@ Transform:
   - {fileID: 3498522113491415332}
   - {fileID: 1872011437556805184}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &902914333653902897
 Rigidbody2D:
@@ -206,9 +206,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4209700492034549301}
     m_Modifications:
+    - target: {fileID: 167131658634122354, guid: 5893b580e3ae4524b862b8fae6d60c2d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 226980984132610395, guid: 5893b580e3ae4524b862b8fae6d60c2d, type: 3}
       propertyPath: m_Name
       value: Obstacle_Move_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585199666243386178, guid: 5893b580e3ae4524b862b8fae6d60c2d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3501961952493396815, guid: 5893b580e3ae4524b862b8fae6d60c2d, type: 3}
       propertyPath: speed

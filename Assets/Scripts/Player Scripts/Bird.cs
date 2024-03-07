@@ -7,8 +7,8 @@ public class Bird : MonoBehaviour
     #region Global property
     public static Bird Instance { get; set; }
     public float jumpForce = 5f;
-    public float minYBound = -6f;
-    public float maxYBound = 6f;
+    public float minYBound = -7f;
+    public float maxYBound = 7f;
     private bool isDead = false;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4186251933397945165}
   - component: {fileID: 851550329591095008}
   - component: {fileID: 680788838899178736}
-  - component: {fileID: 4640389675155347727}
   m_Layer: 0
   m_Name: Short_chain_Spike2
   m_TagString: Untagged
@@ -188,21 +187,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 1.5333333}
   m_EdgeRadius: 0
---- !u!114 &4640389675155347727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2395273842236264863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99d97e2f2e165b04c8dd2e10eaff3cf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 45
-  leftAngle: -0.3
-  rightAngle: 0.3
 --- !u!1001 &4434212901630804675
 PrefabInstance:
   m_ObjectHideFlags: 0

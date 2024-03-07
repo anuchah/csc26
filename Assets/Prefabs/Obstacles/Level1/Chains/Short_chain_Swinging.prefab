@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 559862960924816063}
   - component: {fileID: 8232508171086963398}
   - component: {fileID: 8775724615875288486}
-  - component: {fileID: 1516945185220996527}
   m_Layer: 0
   m_Name: Short_chain_Swinging
   m_TagString: Untagged
@@ -38,7 +37,7 @@ Transform:
   - {fileID: 5334392598764306973}
   - {fileID: 7792326328101603041}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &550115552959341120
 SpriteRenderer:
@@ -135,7 +134,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.68}
-  m_ConnectedAnchor: {x: -8.5, y: 6.68}
+  m_ConnectedAnchor: {x: 0, y: 6.68}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -189,21 +188,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 1.5333333}
   m_EdgeRadius: 0
---- !u!114 &1516945185220996527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6197077004096426058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99d97e2f2e165b04c8dd2e10eaff3cf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 90
-  leftAngle: -0.3
-  rightAngle: 0.3
 --- !u!1001 &2290090072790118105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -376,7 +360,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.03999996, y: -1.6999998}
+  m_ConnectedAnchor: {x: 0.04, y: -1.6999998}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!4 &7792326328101603041 stripped

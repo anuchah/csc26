@@ -421,6 +421,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle_Move_4
       objectReference: {fileID: 0}
+    - target: {fileID: 6892754866713033371, guid: 40d6cecf25e55d94b83ca43e145aa00b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036399438018229712, guid: 40d6cecf25e55d94b83ca43e145aa00b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7989445470098281434, guid: 40d6cecf25e55d94b83ca43e145aa00b, type: 3}
       propertyPath: m_RootOrder
       value: -1
