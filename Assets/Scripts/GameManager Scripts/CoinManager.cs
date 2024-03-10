@@ -26,6 +26,11 @@ public class CoinManager : MonoBehaviour
         totalCoin = PlayerPrefs.GetInt("TotalCoin", 0);
     }
 
+    void Update()
+    {
+        totalCoin = PlayerPrefs.GetInt("TotalCoin", 0);
+    }
+
     public void CollectCoin()
     {
         currentCoin++;
@@ -40,7 +45,7 @@ public class CoinManager : MonoBehaviour
     // Get to GAMEOVER UI
     public string PrettyCoinTemp()
     {
-        return  PlayerPrefs.GetInt("LastCoin", 0).ToString();
+        return PlayerPrefs.GetInt("LastCoin", 0).ToString();
     }
 
     public void EndRound()

@@ -1578,6 +1578,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 687f4f507fcd1c846a364b2871edcdde, type: 3}
   - name: Item
     clip: {fileID: 8300000, guid: 16923f4774f8d2342bf5ec74d388b952, type: 3}
+  - name: Cash
+    clip: {fileID: 8300000, guid: 1bc93448de4ba484cadee616e52ade55, type: 3}
   musicSource: {fileID: 458655149}
   sfxSource: {fileID: 1015696751}
   isMuted: 0
@@ -3126,8 +3128,8 @@ MonoBehaviour:
   - {fileID: 8522914755353217188, guid: 6a1a8f9d4872f754bb243c4cdbb4791e, type: 3}
   - {fileID: 2853180925785075663, guid: fa1f82c1e30ab884b8b073846629db4f, type: 3}
   - {fileID: 8249371440322073323, guid: 9ce2511ab0b4d394ca90769788437323, type: 3}
-  - {fileID: 7054328259140520217, guid: 8cf5d327dd14edf41a68368ef5649ce6, type: 3}
   - {fileID: 2465766200921567342, guid: ccdac445adc50cb4f9f1932e174628cb, type: 3}
+  - {fileID: 8651976284738122727, guid: 8cf5d327dd14edf41a68368ef5649ce6, type: 3}
   gameModeParent: {fileID: 1637081168}
 --- !u!4 &1637081168
 Transform:

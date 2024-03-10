@@ -109,6 +109,7 @@ public class ShopManager : MonoBehaviour
         PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
         characters[selectedCharacter].isUnlocked = true;
         Debug.Log("Buy successfuly : " + PlayerPrefs.GetInt("TotalCoin", 0));
+        AudioManager.Instance.PlaySound(TagManager.CASH);
         UpdateUI();
     }
 

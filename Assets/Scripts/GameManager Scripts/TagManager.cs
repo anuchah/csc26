@@ -8,6 +8,7 @@ public class TagManager
     public const string COMPLETE = "Complete";
     public const string FAILED = "Failed";
     public const string COLLECT_ITEMS = "Item";
+    public const string CASH = "Cash";
     public const string ISFLAP = "isFlap";
 
 }

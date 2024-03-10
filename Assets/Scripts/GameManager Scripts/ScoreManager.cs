@@ -15,7 +15,10 @@ public class ScoreManager : MonoBehaviour
     void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
         {
             Destroy(gameObject);
@@ -25,7 +28,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         currentTime = 0;
-        score = 0;
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     void Update()
@@ -80,7 +83,7 @@ public class ScoreManager : MonoBehaviour
 
     public string PrettyHighScore()
     {
-        return PlayerPrefs.GetInt("HighScore", 0).ToString();
+        return highScore.ToString();
     }
 
     public string PrettyLastScore()
