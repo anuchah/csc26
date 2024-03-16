@@ -22,7 +22,7 @@ public class Bird : MonoBehaviour
     private Coroutine magnetCoroutine;
     #endregion
     private GameManager.GameState gameState;
-
+    public GameObject[] effects;
     private void Awake()
     {
         if (Instance == null)
@@ -109,6 +109,7 @@ public class Bird : MonoBehaviour
                 {
                     StarManager.Instance.IncrementStarCount();
                     AudioManager.Instance.PlaySound(TagManager.COIN_COLLECTOR);
+                    Instantiate(effects[0], new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z), transform.rotation);
                     Destroy(collision.gameObject);
                 }
             }
@@ -116,6 +117,7 @@ public class Bird : MonoBehaviour
             {
                 isMagnet = true;
                 AudioManager.Instance.PlaySound(TagManager.COLLECT_ITEMS);
+                Instantiate(effects[1], new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z), transform.rotation);
                 Destroy(collision.gameObject);
                 if (magnetCoroutine != null)
                     StopCoroutine(magnetCoroutine);
@@ -126,6 +128,7 @@ public class Bird : MonoBehaviour
             {
                 AudioManager.Instance.PlaySound(TagManager.COIN_COLLECTOR);
                 CoinManager.Instance.CollectCoin();
+                Instantiate(effects[0], new Vector3(transform.position.x + 2, transform.position.y, 0), transform.rotation);
                 Destroy(collision.gameObject);
             }
         }

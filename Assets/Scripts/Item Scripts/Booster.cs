@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Booster : MonoBehaviour
 {
+    public GameObject effect;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (ModeManager.Instance.CurrentMode == ModeManager.GameMode.Endless)
@@ -15,6 +16,7 @@ public class Booster : MonoBehaviour
                 if (bird != null)
                 {
                     bird.ActivateSpeedBoost();
+                    Instantiate(effect, transform.position, transform.rotation);
                     Destroy(gameObject);
                 }
             }

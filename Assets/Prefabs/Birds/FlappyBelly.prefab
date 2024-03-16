@@ -187,4 +187,6 @@ MonoBehaviour:
   minYBound: -6
   maxYBound: 6
   isMagnet: 0
-  birdBobm: {fileID: 141433446842962269, guid: 9fe8f8b3288e45a44af36ff8aa04486e, type: 3}
+  effects:
+  - {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
+  - {fileID: 2360655870356088562, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}

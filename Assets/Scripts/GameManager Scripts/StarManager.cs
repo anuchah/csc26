@@ -7,7 +7,7 @@ public class StarManager : MonoBehaviour
     public static StarManager Instance { get; private set; }
     public int StarGoal { get; private set; }
     public int CountStar { get; private set; }
-
+    
     private bool isEqauls;
 
     private void Awake()
